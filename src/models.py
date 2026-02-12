@@ -1,6 +1,6 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import numpy as np # type: ignore
+import matplotlib.pyplot as plt # type: ignore
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score # type: ignore
 
 
 class Baseline:
@@ -13,7 +13,10 @@ class Baseline:
         return np.full(len(X), self.mean_)
 
 
-def plot_metrics_model(model, X_train, X_test, y_train, y_test, name):
+def plot_metrics_model(model, X_train, X_test, y_train, y_test, name="Model", ax=None):
+    
+    if ax is None:
+        fig, ax = plt.subplots()
 
     y_pred_train = model.predict(X_train)
     y_pred_test  = model.predict(X_test)
@@ -31,12 +34,32 @@ def plot_metrics_model(model, X_train, X_test, y_train, y_test, name):
     print("MAE_train :", mae_train,  "MAE_test :", mae_test)
     print("R2_train  :", r2_train,   "R2_test  :", r2_test)
 
-    plt.figure(figsize=(8,6))
-    plt.scatter(y_test, y_pred_test, alpha=0.3)
-    plt.plot([0, y_test.max()], [0, y_test.max()], 'r--')
-    plt.xlabel("True RUL")
-    plt.ylabel(f"Predicted {name} RUL")
-    plt.title(f"{name} Prediction")
-    plt.grid()
-    plt.show()
-    plt.close()
+    ax.scatter(y_test, y_pred_test, alpha=0.3)
+    ax.plot([0, y_test.max()], [0, y_test.max()], 'r--')
+    ax.set_xlabel("True RUL")
+    ax.set_ylabel(f"Predicted {name} RUL")
+    ax.set_title(f"{name} Prediction")
+    ax.grid()
+    
+def plot_unit_model(model, df, unit, features, scaler=None, name="Model", ax=None):
+    
+    if ax is None:
+        fig, ax = plt.subplots()
+
+    subset = df[df['unit_number'] == unit]
+
+    X = subset[features]
+    y = subset['RUL']
+
+    if scaler is not None:
+        X = scaler.transform(X)
+
+    y_pred = model.predict(X)
+
+    ax.plot(subset['time_cycles'], y, label='True RUL')
+    ax.plot(subset['time_cycles'], y_pred, label='Pred RUL')
+    ax.set_xlabel('cycle')
+    ax.set_ylabel('RUL')
+    ax.set_title(f'{name} Unit {unit}')
+    ax.legend()
+    ax.grid()
