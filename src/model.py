@@ -326,7 +326,8 @@ def evaluate_model(
     unit, 
     features, 
     scaler, 
-    name
+    name,
+    save_path=None
 ) -> dict:
     
     """
@@ -355,7 +356,8 @@ def evaluate_model(
         Optional scaler used for normalization.
     name : str
         Model name.
-        
+    save_path :
+        Path to save model plots
     Returns
     -------
     dict
@@ -366,6 +368,8 @@ def evaluate_model(
     metrics=plot_metrics_model(model, X_train, X_test, y_train, y_test, name, axes[0])
     plot_unit_model(model, df, unit, features, scaler, name, axes[1])
     plt.tight_layout()
+    if save_path is not None:
+        plt.savefig(save_path, dpi=150, bbox_inches='tight')
     plt.show()
     plt.close()
     return metrics
