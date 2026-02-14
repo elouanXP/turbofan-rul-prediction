@@ -1,8 +1,13 @@
-ZIP_PATH = '../data/raw/CMAPSSdata.zip'
-DATA_RAW = '../data/raw'
-DATA_PROCESSED = '../data/processed'
-OUTPUTS_PLOTS = "outputs/plots/"
-OUTPUTS_MODELS = "outputs/models/"
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+ZIP_PATH = ROOT/"data"/"raw"/"CMAPSSdata.zip"
+DATA_RAW = ROOT/"data"/"raw"
+DATA_PROCESSED = ROOT /"data"/"processed"
+
+OUTPUTS_PLOTS = ROOT/"outputs"/"plots"
+OUTPUTS_MODELS = ROOT/"outputs"/"models"
 
 CLIP_RUL = 120
 VAR_THRESHOLD= 1e-5
