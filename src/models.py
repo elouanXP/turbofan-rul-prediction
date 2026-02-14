@@ -1,7 +1,7 @@
-import numpy as np # type: ignore
-import matplotlib.pyplot as plt # type: ignore
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score # type: ignore
-import pandas as pd # type: ignore
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import pandas as pd
 
 
 class Baseline:
