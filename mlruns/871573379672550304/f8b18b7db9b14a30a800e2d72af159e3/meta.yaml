@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/f8b18b7db9b14a30a800e2d72af159e3/artifacts
+deleted_time: 1771117594015
 end_time: 1771116228508
 entry_point_name: ''
 experiment_id: '871573379672550304'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: f8b18b7db9b14a30a800e2d72af159e3
 run_name: Baseline
 source_name: ''

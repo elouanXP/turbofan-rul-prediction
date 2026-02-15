@@ -1,0 +1,15 @@
+creation_timestamp: 1771118653791
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1771118653791
+model_id: m-60440108d2cb43a89ac5c7bea036b596
+name: XGBoost Tuned
+run_id: 7a9b2f95c6ab4a01821260341bd80ce9
+run_link: null
+source: models:/m-60440108d2cb43a89ac5c7bea036b596
+status: READY
+status_message: null
+storage_location: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/models/m-60440108d2cb43a89ac5c7bea036b596/artifacts
+user_id: null
+version: 2

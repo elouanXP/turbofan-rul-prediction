@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/7a9b2f95c6ab4a01821260341bd80ce9/artifacts
+end_time: 1771118653908
+entry_point_name: ''
+experiment_id: '871573379672550304'
+lifecycle_stage: active
+run_id: 7a9b2f95c6ab4a01821260341bd80ce9
+run_name: XGBoost Tuned
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1771118647540
+status: 3
+tags: []
+user_id: eloua

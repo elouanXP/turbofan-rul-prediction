@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/aed685775d3c491d9a5e893c9f1db107/artifacts
+end_time: 1771118180720
+entry_point_name: ''
+experiment_id: '871573379672550304'
+lifecycle_stage: active
+run_id: aed685775d3c491d9a5e893c9f1db107
+run_name: Random Forest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1771118152351
+status: 3
+tags: []
+user_id: eloua

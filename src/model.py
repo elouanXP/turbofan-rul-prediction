@@ -452,6 +452,6 @@ def run_experiment(
 
         mlflow.log_params(pipeline.get_params())
         mlflow.log_metrics(metrics)
-        mlflow.sklearn.log_model(pipeline, name="pipeline", registered_model_name=run_name)
+        mlflow.sklearn.log_model(pipeline, name=run_name, registered_model_name=run_name)
 
     return metrics

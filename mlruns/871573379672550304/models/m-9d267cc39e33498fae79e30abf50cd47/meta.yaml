@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/models/m-9d267cc39e33498fae79e30abf50cd47/artifacts
+creation_timestamp: 1771118097259
+experiment_id: '871573379672550304'
+last_updated_timestamp: 1771118106906
+model_id: m-9d267cc39e33498fae79e30abf50cd47
+model_type: null
+name: Baseline
+source_run_id: 6c2b597c82ed48ba94cd975cfbd710b9
+status: 2
+status_message: null

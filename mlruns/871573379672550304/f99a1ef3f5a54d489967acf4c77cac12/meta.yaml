@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/f99a1ef3f5a54d489967acf4c77cac12/artifacts
+end_time: 1771118621374
+entry_point_name: ''
+experiment_id: '871573379672550304'
+lifecycle_stage: active
+run_id: f99a1ef3f5a54d489967acf4c77cac12
+run_name: RF Tuned
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1771118579175
+status: 3
+tags: []
+user_id: eloua

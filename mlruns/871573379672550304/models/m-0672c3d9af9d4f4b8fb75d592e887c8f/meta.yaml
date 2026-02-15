@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/models/m-0672c3d9af9d4f4b8fb75d592e887c8f/artifacts
+creation_timestamp: 1771118615054
+experiment_id: '871573379672550304'
+last_updated_timestamp: 1771118621221
+model_id: m-0672c3d9af9d4f4b8fb75d592e887c8f
+model_type: null
+name: RF Tuned
+source_run_id: f99a1ef3f5a54d489967acf4c77cac12
+status: 2
+status_message: null

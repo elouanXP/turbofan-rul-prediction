@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/c0fb88b84ce7480e96c6c13c0c76f9a4/artifacts
+deleted_time: 1771117594007
 end_time: 1771115002256
 entry_point_name: ''
 experiment_id: '871573379672550304'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: c0fb88b84ce7480e96c6c13c0c76f9a4
 run_name: XGBoost
 source_name: ''

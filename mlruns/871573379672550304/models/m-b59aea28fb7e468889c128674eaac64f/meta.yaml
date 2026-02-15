@@ -1,0 +1,10 @@
+artifact_location: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/models/m-b59aea28fb7e468889c128674eaac64f/artifacts
+creation_timestamp: 1771118175053
+experiment_id: '871573379672550304'
+last_updated_timestamp: 1771118180526
+model_id: m-b59aea28fb7e468889c128674eaac64f
+model_type: null
+name: Random Forest
+source_run_id: aed685775d3c491d9a5e893c9f1db107
+status: 2
+status_message: null
