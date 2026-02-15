@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/eloua/OneDrive/Bureau/smart_predictive_maintenance/mlruns/871573379672550304/b6ed1243bd924dfd83b28175a238ddf7/artifacts
+end_time: 1771165736680
+entry_point_name: ''
+experiment_id: '871573379672550304'
+lifecycle_stage: active
+run_id: b6ed1243bd924dfd83b28175a238ddf7
+run_name: NASA Test Benchmark
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1771165736633
+status: 3
+tags: []
+user_id: eloua
