@@ -1,8 +1,8 @@
 # Smart Predictive Maintenance — NASA CMAPSS Turbofan Engine
 
-[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.x-orange.svg)](https://scikit-learn.org/)
-[![XGBoost](https://img.shields.io/badge/XGBoost-latest-green.svg)](https://xgboost.readthedocs.io/)
+[![Python](https://img.shields.io/badge/Python-3.12.10-blue.svg)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8.0-orange.svg)](https://scikit-learn.org/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-3.2.0-green.svg)](https://xgboost.readthedocs.io/)
 [![MLflow](https://img.shields.io/badge/MLflow-tracking-blue.svg)](https://mlflow.org/)
 
 Predictive maintenance system for turbofan engines using the **NASA CMAPSS dataset**.  
