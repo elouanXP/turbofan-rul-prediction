@@ -1,4 +1,4 @@
-# Turbofan RUL Prediction - NASA CMAPSS
+# Turbofan RUL Prediction -- NASA CMAPSS
 
 [![Python](https://img.shields.io/badge/Python-3.12.10-blue.svg)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8.0-orange.svg)](https://scikit-learn.org/)
