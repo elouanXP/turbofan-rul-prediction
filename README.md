@@ -22,7 +22,7 @@ End-to-end predictive maintenance system for turbofan engines using the NASA CMA
 
 NASA Benchmark (Random Forest Tuned - full train) = RMSE = 17.34 · MAE = 12.10 · R² = 0.806 · NASA Score = 907.2
 
-![plot](outputs\plots\04_operational_risk_FD001.png)
+![plot](outputs/plots/04_operational_risk_FD001.png)
 
 ---
 
