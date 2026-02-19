@@ -1,12 +1,20 @@
-# Smart Predictive Maintenance — NASA CMAPSS Turbofan Engine
+# Turbofan RUL Prediction — NASA CMAPSS
 
 [![Python](https://img.shields.io/badge/Python-3.12.10-blue.svg)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.8.0-orange.svg)](https://scikit-learn.org/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-3.2.0-green.svg)](https://xgboost.readthedocs.io/)
-[![MLflow](https://img.shields.io/badge/MLflow-tracking-blue.svg)](https://mlflow.org/)
+[![MLflow](https://img.shields.io/badge/MLflow-3.9.0-blue.svg)](https://mlflow.org/)
 
-Predictive maintenance system for turbofan engines using the **NASA CMAPSS dataset**.  
+End-to-end predictive maintenance system for turbofan engines using the **NASA CMAPSS dataset**.  
 The model predicts the **Remaining Useful Life (RUL)** of an engine — i.e. how many operational cycles remain before failure — enabling condition-based maintenance decisions.
+
+---
+
+## Dataset
+
+**CMAPSS** (Commercial Modular Aero-Propulsion System Simulation) — NASA Ames Research Center.  
+Simulates the degradation of a **turbofan engine high-pressure compressor** from healthy state to failure.
+**Objective** : predict the number of remaining operational cycles at the last observed measurement
 
 ---
 
@@ -14,16 +22,14 @@ The model predicts the **Remaining Useful Life (RUL)** of an engine — i.e. how
 
 | Model | RMSE (test) | MAE (test) | R² (test) |
 |-------|-------------|------------|-----------|
-| Baseline | 39.92 | 35.26 | -0.000 |
-| Linear Regression | 19.00 | 15.39 | 0.773 |
-| Random Forest | 15.90 | 10.92 | 0.841 |
-| RF Tuned | 15.51 | 10.71 | 0.849 |
-| XGBoost | 16.98 | 11.48 | 0.819 |
-| XGBoost Tuned | 15.53 | 11.18 | 0.849 |
+| Baseline | 39.92 | 35.26 | 0.00 |
+| Linear Regression | 19.00 | 15.39 | 0.77 |
+| Random Forest | 15.90 | 10.92 | 0.84 |
+| RF Tuned | 15.51 | 10.71 | 0.85 |
+| XGBoost | 16.98 | 11.48 | 0.82 |
+| XGBoost Tuned | 15.53 | 11.18 | 0.85 |
 
-**NASA Benchmark (test_FD001.txt — full train)** : RMSE = 17.34 · MAE = 12.10 · R² = 0.806
-
-> Evaluated on the official NASA test set using the full training data — consistent with published results for classical ML approaches on FD001.
+**NASA Benchmark (test_FD001.txt — full train)** : RMSE = 17.34 · MAE = 12.10 · R² = 0.806 · NASA Score = 907.2
 
 ---
 
@@ -40,7 +46,7 @@ smart_predictive_maintenance/
 │   ├── 01_data_exploration.ipynb       # EDA, sensor visualization, variance analysis
 │   ├── 02_feature_engineering.ipynb    # RUL computation, feature creation, correlation filtering
 │   ├── 03_model.ipynb                  # Model training, tuning, comparison, NASA benchmark
-│   └── 04_business_conclusion.ipynb    # NASA scoring function, operational risk, physical interpretation
+│   └── 04_business_conclusion.ipynb    # NASA scoring function, operational risk
 │
 ├── outputs/
 │   ├── models/               # Saved pipelines (.joblib)
@@ -54,66 +60,22 @@ smart_predictive_maintenance/
 ├── requirements.txt
 └── README.md
 ```
-
----
-
-## Dataset
-
-**CMAPSS** (Commercial Modular Aero-Propulsion System Simulation) — NASA Ames Research Center.  
-Simulates the degradation of a **turbofan engine high-pressure compressor** from healthy state to failure.
-
-- **FD001** : 100 training engines · 100 test engines · single operating condition · single fault mode
-- Each engine starts with unknown initial wear and develops a fault that grows until system failure
-- 21 sensor measurements per cycle (temperature, pressure, speed, fuel flow...)
-- **Objective** : predict the number of remaining operational cycles at the last observed measurement
-
-[Download the dataset](https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/)
-
----
-
-## Methodology
-
-### 1. Data Exploration (`01_data_exploration.ipynb`)
-- Column naming from CMAPSS documentation
-- Sensor visualization per engine
-- Lifetime distribution analysis
-- Variance and correlation analysis
-
-### 2. Feature Engineering (`02_feature_engineering.ipynb`)
-- **RUL computation** with clipping at 120 cycles (standard in CMAPSS literature)
-- **Low-variance feature removal** — sensors with near-zero variance carry no information
-- **Temporal features** per engine : rolling mean (window=5), rolling std, first difference
-- **Correlation filtering** — features with |corr(RUL)| ≤ 0.1 removed
-
-### 3. Modelling (`03_model.ipynb`)
-- **Unit-based train/test split** — no engine appears in both train and test (prevents data leakage)
-- **GroupKFold cross-validation** — folds built by engine unit to prevent leakage during tuning
-- **sklearn Pipeline** — scaler + model in a single object, guaranteeing consistent preprocessing at inference
-- **MLflow tracking** — all runs logged with parameters, metrics and artifacts
-- **Feature selection** by model importance before hyperparameter tuning (top 15 features)
-- **Final evaluation** on official NASA test set after retraining on full training data
-
-### 4. Business Analysis (`04_business_conclusion.ipynb`)
-- **NASA scoring function** — asymmetric penalty: late predictions (missed failures) penalized more than early predictions (unnecessary maintenance)
-- **Operational risk classification** — engines categorized as safe / early warning / danger
-- **Physical sensor interpretation** — top features mapped to actual turbofan degradation mechanisms
-- **Limitations and next steps** — honest assessment of model boundaries
-
 ---
 
 ## Quickstart
 
 ### Prerequisites
 ```bash
-git clone https://github.com/elouanXP/smart_predictive_maintenance
-cd smart_predictive_maintenance
+git clone https://github.com/elouanXP/turbofan-rul-prediction
+cd turbofan-rul-prediction
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
 ### Data
-Download the CMAPSS dataset and place `CMAPSSdata.zip` in `data/raw/`.
+[Download the CMAPSS dataset](https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/) dataset and place `CMAPSSdata.zip` in `data/raw/`.
+
 
 ### Run notebooks
 Execute notebooks in order from the `notebooks/` directory:
@@ -144,23 +106,6 @@ Open `http://127.0.0.1:5000` to explore all tracked experiments and compare runs
 
 ---
 
-## Key Design Decisions
-
-**Why split by engine unit, not randomly?**  
-A random row-level split would place cycles from the same engine in both train and test — the model would partially memorize each engine's behavior rather than generalize. Splitting by unit ensures the test set contains engines never seen during training.
-
-**Why clip RUL at 120 cycles?**  
-At high RUL values (engine is healthy), the exact remaining life is operationally irrelevant — no maintenance decision depends on whether an engine has 200 or 280 cycles remaining. Clipping reduces noise in the target and focuses the model on the degradation phase that matters for scheduling.
-
-**Why use GroupKFold for cross-validation?**  
-Standard KFold would randomly assign cycles to folds, again creating leakage between engines. GroupKFold ensures each engine appears in exactly one fold as validation data.
-
----
-
 ## Author
 
-**elouanXP** · [GitHub](https://github.com/elouanXP/smart_predictive_maintenance)
-
----
-
-*Dataset: NASA CMAPSS — Saxena, A., Goebel, K., Simon, D., & Ecker, N. (2008). Damage propagation modeling for aircraft engine run-to-failure simulation. PHM Conference.*
+[GitHub](https://github.com/elouanXP/)
