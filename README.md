@@ -5,16 +5,7 @@
 [![XGBoost](https://img.shields.io/badge/XGBoost-3.2.0-green.svg)](https://xgboost.readthedocs.io/)
 [![MLflow](https://img.shields.io/badge/MLflow-3.9.0-blue.svg)](https://mlflow.org/)
 
-End-to-end predictive maintenance system for turbofan engines using the **NASA CMAPSS dataset**.  
-The model predicts the **Remaining Useful Life (RUL)** of an engine — i.e. how many operational cycles remain before failure — enabling condition-based maintenance decisions.
-
----
-
-## Dataset
-
-**CMAPSS** (Commercial Modular Aero-Propulsion System Simulation) — NASA Ames Research Center.  
-Simulates the degradation of a **turbofan engine high-pressure compressor** from healthy state to failure.
-**Objective** : predict the number of remaining operational cycles at the last observed measurement
+End-to-end predictive maintenance system for turbofan engines using the NASA CMAPSS dataset. The model predicts the **Remaining Useful Life (RUL)** of a turbofan engine high-pressure compressor (number of operational cycles remaining before failure) in order to improve maintenance decisions.
 
 ---
 
@@ -25,11 +16,13 @@ Simulates the degradation of a **turbofan engine high-pressure compressor** from
 | Baseline | 39.92 | 35.26 | 0.00 |
 | Linear Regression | 19.00 | 15.39 | 0.77 |
 | Random Forest | 15.90 | 10.92 | 0.84 |
-| RF Tuned | 15.51 | 10.71 | 0.85 |
+| **RF Tuned** | **15.51** | **10.71** | **0.85** |
 | XGBoost | 16.98 | 11.48 | 0.82 |
 | XGBoost Tuned | 15.53 | 11.18 | 0.85 |
 
-**NASA Benchmark (test_FD001.txt — full train)** : RMSE = 17.34 · MAE = 12.10 · R² = 0.806 · NASA Score = 907.2
+NASA Benchmark (Random Forest Tuned - full train) = RMSE = 17.34 · MAE = 12.10 · R² = 0.806 · NASA Score = 907.2
+
+![plot](outputs\plots\04_operational_risk_FD001.png)
 
 ---
 
@@ -53,7 +46,7 @@ smart_predictive_maintenance/
 │   └── plots/                # All generated figures (.png)
 │
 ├── src/
-│   ├── config.py             # Paths and hyperparameters
+│   ├── config.py             # Paths and variables
 │   ├── preprocessing.py      # RUL computation, feature engineering, filtering
 │   └── model.py              # Training utilities, evaluation, MLflow experiment tracking
 │
@@ -74,7 +67,7 @@ pip install -r requirements.txt
 ```
 
 ### Data
-[Download the CMAPSS dataset](https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/) dataset and place `CMAPSSdata.zip` in `data/raw/`.
+[Download the CMAPSS dataset](https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/) and place `CMAPSSdata.zip` in `data/raw/`.
 
 
 ### Run notebooks
@@ -108,4 +101,4 @@ Open `http://127.0.0.1:5000` to explore all tracked experiments and compare runs
 
 ## Author
 
-[GitHub](https://github.com/elouanXP/)
+[elouanXP](https://github.com/elouanXP/)
